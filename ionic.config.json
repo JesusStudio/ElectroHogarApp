@@ -1,0 +1,7 @@
+{
+  "name": "ElectroHogarApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
