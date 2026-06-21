@@ -1,0 +1,56 @@
+// ── Bienvenida ────────────────────────────────────────
+.welcome-section {
+  background: linear-gradient(135deg, #1E3A5F 0%, #2a4d7a 100%);
+  padding: 24px 20px 28px;
+
+  .welcome-label {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    margin: 0 0 2px;
+  }
+
+  .welcome-title {
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+
+  .welcome-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+// ── Stats ─────────────────────────────────────────────
+.stats-row {
+  display: flex;
+  gap: 10px;
+  padding: 16px 16px 0;
+}
+
+// ── Grid de módulos ───────────────────────────────────
+.modules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 16px;
+}
+
+// ── Sync status ───────────────────────────────────────
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px 24px;
+
+  ion-icon {
+    font-size: 10px;
+  }
+
+  span {
+    font-size: 11px;
+    color: #7A8C9E;
+  }
+}

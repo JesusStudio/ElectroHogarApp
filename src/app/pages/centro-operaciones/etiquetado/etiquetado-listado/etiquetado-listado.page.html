@@ -1,0 +1,47 @@
+<ion-content class="ion-padding">
+
+  <div class="section-card">
+    <div class="section-header">
+      LISTA DE ETIQUETAS
+      <span class="count">{{ stateService.items().length }} productos</span>
+    </div>
+    <div class="section-body lista-body">
+
+      <div class="empty-state" *ngIf="stateService.items().length === 0">
+        Sin productos en la lista.
+      </div>
+
+      <div class="etiqueta-item" *ngFor="let item of stateService.items()">
+        <div class="item-info">
+          <span class="item-codigo">{{ item.codigo }}</span>
+          <span class="item-desc">{{ item.descripcion }}</span>
+        </div>
+        <div class="item-right">
+          <span class="item-cantidad">{{ item.cantidadEtiquetas }}</span>
+          <button class="btn-delete" (click)="onEliminar(item)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Acciones -->
+  <div class="acciones-row">
+    <ion-button fill="outline" (click)="onLimpiarLista()">
+      <ion-icon slot="start" name="refresh-outline"></ion-icon>
+      Limpiar Lista
+    </ion-button>
+    <ion-button color="danger" fill="outline">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      Eliminar
+    </ion-button>
+  </div>
+
+  <ion-button expand="block" (click)="onImprimir()" class="btn-imprimir">
+    <ion-icon slot="start" name="print-outline"></ion-icon>
+    Imprimir Etiquetas
+  </ion-button>
+
+</ion-content>

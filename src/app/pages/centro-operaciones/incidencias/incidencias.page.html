@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/centro-operaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Incidencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- DATOS GENERALES -->
+  <div class="section-card">
+    <div class="section-header">DATOS GENERALES</div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>FECHA</label>
+        <ion-input fill="outline" [value]="fecha" [readonly]="true"></ion-input>
+      </div>
+    </div>
+  </div>
+
+  <!-- BÚSQUEDA -->
+  <app-product-search-bar
+    [descripcion]="productoEncontrado?.nombre ?? ''"
+    [isLoading]="buscando"
+    (buscar)="onBuscarProducto($event)">
+  </app-product-search-bar>
+
+  <!-- DATOS DE INCIDENCIA -->
+  <div class="section-card" *ngIf="productoEncontrado">
+    <div class="section-header">DATOS DE INCIDENCIA</div>
+    <div class="section-body">
+
+      <div class="field-group">
+        <label>MOTIVO</label>
+        <ion-select fill="outline" [(ngModel)]="motivo" placeholder="Seleccionar">
+          <ion-select-option *ngFor="let m of motivos" [value]="m">{{ m }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>UNIDAD DE MEDIDA</label>
+          <ion-select fill="outline" [(ngModel)]="unidad">
+            <ion-select-option *ngFor="let u of unidades" [value]="u">{{ u }}</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="field-group">
+          <label>CANTIDAD</label>
+          <ion-input fill="outline" type="number" [(ngModel)]="cantidad" [min]="1"></ion-input>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>OBSERVACIÓN</label>
+        <ion-input fill="outline" placeholder="Descripción del problema..."
+          [(ngModel)]="observacion">
+        </ion-input>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TABLA -->
+  <app-data-table
+    titulo="DETALLE DE INCIDENCIAS"
+    [columnas]="columnas"
+    [datos]="items"
+    [filaSeleccionada]="itemSeleccionado"
+    (seleccionar)="itemSeleccionado = $event"
+    (eliminar)="onEliminarItem($event)">
+  </app-data-table>
+
+</ion-content>
+
+<app-action-bar
+  (listar)="onListar()"
+  (agregar)="onAgregar()"
+  (eliminar)="onEliminar()"
+  (procesar)="onProcesar()"
+  [deshabilitarProcesar]="items.length === 0">
+</app-action-bar>

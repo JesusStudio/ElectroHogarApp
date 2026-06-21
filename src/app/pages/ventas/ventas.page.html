@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Ventas
+      <p class="toolbar-sub">ELECTROCONTROL MOBILE</p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- DATOS DE VENTA -->
+  <div class="section-card">
+    <div class="section-header">DATOS DE VENTA</div>
+    <div class="section-body">
+
+      <div class="field-group">
+        <label>CLIENTE</label>
+        <ion-input fill="outline" placeholder="Nombre del cliente"
+          [(ngModel)]="cliente">
+        </ion-input>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>DOCUMENTO</label>
+          <ion-input fill="outline" placeholder="DNI o RUC"
+            [(ngModel)]="documento" type="number">
+          </ion-input>
+        </div>
+        <div class="field-group">
+          <label>FECHA</label>
+          <ion-input fill="outline" [value]="fecha" [readonly]="true">
+          </ion-input>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BÚSQUEDA DE PRODUCTO -->
+  <app-product-search-bar
+    [descripcion]="productoEncontrado?.nombre ?? ''"
+    [isLoading]="buscando"
+    (buscar)="onBuscarProducto($event)">
+  </app-product-search-bar>
+
+  <!-- PRECIO Y CANTIDAD -->
+  <div class="section-card" *ngIf="productoEncontrado">
+    <div class="section-header">DATOS DEL PRODUCTO</div>
+    <div class="section-body">
+      <div class="field-row">
+        <div class="field-group">
+          <label>PRECIO (S/)</label>
+          <ion-input fill="outline" [value]="productoEncontrado.precio"
+            [readonly]="true">
+          </ion-input>
+        </div>
+        <div class="field-group">
+          <label>CANTIDAD</label>
+          <ion-input fill="outline" type="number"
+            [(ngModel)]="cantidad" [min]="1">
+          </ion-input>
+        </div>
+      </div>
+      <div class="stock-info">
+        <span>Stock disponible:</span>
+        <strong>{{ productoEncontrado.stockActual }} unidades</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA DE ITEMS -->
+  <app-data-table
+    titulo="DETALLE DE VENTA"
+    [columnas]="columnas"
+    [datos]="items"
+    [filaSeleccionada]="itemSeleccionado"
+    (seleccionar)="itemSeleccionado = $event"
+    (eliminar)="onEliminarItem($event)">
+  </app-data-table>
+
+  <!-- TOTAL -->
+  <div class="total-card" *ngIf="items.length > 0">
+    <span class="total-label">TOTAL VENTA</span>
+    <span class="total-valor">S/ {{ totalVenta | number:'1.2-2' }}</span>
+  </div>
+
+</ion-content>
+
+<!-- BARRA DE ACCIONES -->
+<app-action-bar
+  (listar)="onListar()"
+  (agregar)="onAgregar()"
+  (eliminar)="onEliminar()"
+  (procesar)="onProcesar()"
+  [deshabilitarProcesar]="items.length === 0">
+</app-action-bar>

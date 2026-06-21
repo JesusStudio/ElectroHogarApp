@@ -1,0 +1,77 @@
+.toolbar-sub {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.submodulos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.submodulo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px;
+  background: #F9FAFB;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  &:active { transform: scale(0.97); }
+
+  .sub-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon { font-size: 20px; }
+  }
+
+  .sub-titulo {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .sub-subtitulo {
+    font-size: 11px;
+    color: #7A8C9E;
+  }
+}
+
+.estado-body { padding: 0 !important; }
+
+.estado-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #F4F6F9;
+
+  &:last-child { border-bottom: none; }
+
+  .estado-label {
+    font-size: 13px;
+    color: #4A5568;
+  }
+
+  .estado-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+
+    &.badge-success { background: #DCFCE7; color: #16A34A; }
+    &.badge-primary { background: #DBEAFE; color: #2563EB; }
+    &.badge-warning { background: #FEF3C7; color: #D97706; }
+  }
+}

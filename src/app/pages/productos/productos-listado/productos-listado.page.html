@@ -1,0 +1,52 @@
+<ion-content>
+
+  <!-- Buscador -->
+  <ion-searchbar
+    placeholder="Buscar por nombre, código o marca..."
+    (ionInput)="onFiltrar($event)"
+    animated>
+  </ion-searchbar>
+
+  <!-- Loading -->
+  <div class="loading-wrap" *ngIf="isLoading">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <!-- Sin productos -->
+  <div class="empty-state" *ngIf="!isLoading && productosFiltrados.length === 0">
+    No hay productos registrados.
+  </div>
+
+  <!-- Lista -->
+  <div class="section-card" *ngIf="!isLoading && productosFiltrados.length > 0">
+    <div class="section-header">
+      PRODUCTOS REGISTRADOS
+      <span class="count">{{ productosFiltrados.length }} items</span>
+    </div>
+    <div class="section-body list-body">
+
+      <div class="producto-item" *ngFor="let p of productosFiltrados">
+
+        <div class="producto-info">
+          <span class="codigo">{{ p.codigo }}</span>
+          <span class="nombre">{{ p.nombre }}</span>
+          <span class="detalle">{{ p.marca }} · {{ p.modelo }} · {{ p.categoria }}</span>
+        </div>
+
+        <div class="producto-right">
+          <span class="precio">S/ {{ p.precio | number:'1.2-2' }}</span>
+          <div class="acciones">
+            <button class="btn-icon edit">
+              <ion-icon name="create-outline"></ion-icon>
+            </button>
+            <button class="btn-icon delete" (click)="onDesactivar(p)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</ion-content>

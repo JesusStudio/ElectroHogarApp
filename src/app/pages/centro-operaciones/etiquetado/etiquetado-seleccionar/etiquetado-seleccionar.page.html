@@ -1,0 +1,48 @@
+<ion-content class="ion-padding">
+
+  <app-product-search-bar
+    [descripcion]="productoEncontrado?.nombre ?? ''"
+    [isLoading]="buscando"
+    (buscar)="onBuscarProducto($event)">
+  </app-product-search-bar>
+
+  <div class="section-card" *ngIf="productoEncontrado">
+    <div class="section-header">SELECCIÓN DE PRODUCTO</div>
+    <div class="section-body">
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>PRECIO</label>
+          <ion-input fill="outline" [value]="productoEncontrado.precio | number:'1.2-2'"
+            [readonly]="true" [placeholder]="'S/ ' + productoEncontrado.precio">
+          </ion-input>
+        </div>
+        <div class="field-group">
+          <label>PROMOCIÓN</label>
+          <ion-input fill="outline" [value]="promocion ? (precioPromocion | number:'1.2-2') : '—'"
+            [readonly]="true">
+          </ion-input>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <span>Activar promoción</span>
+        <ion-toggle [(ngModel)]="promocion"></ion-toggle>
+      </div>
+
+      <div class="field-group">
+        <label>CANTIDAD DE ETIQUETAS</label>
+        <ion-input fill="outline" type="number"
+          [(ngModel)]="cantidadEtiquetas" [min]="1">
+        </ion-input>
+      </div>
+
+      <ion-button expand="block" (click)="onAgregar()">
+        <ion-icon slot="start" name="add-outline"></ion-icon>
+        Agregar a Lista
+      </ion-button>
+
+    </div>
+  </div>
+
+</ion-content>

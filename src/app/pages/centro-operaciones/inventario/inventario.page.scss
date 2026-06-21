@@ -1,0 +1,81 @@
+.field-group {
+  margin-bottom: 12px;
+  label {
+    display: block; font-size: 10px; font-weight: 700;
+    color: #7A8C9E; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  ion-input { --border-radius: 8px; --border-color: #E8ECF1; }
+}
+
+.btn-row {
+  display: flex; gap: 8px;
+  ion-button { flex: 1; --border-radius: 8px; font-size: 11px; font-weight: 600; }
+}
+
+.producto-nombre {
+  display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px;
+  .codigo-tag {
+    font-size: 10px; font-weight: 700; color: #2563EB;
+    background: #EFF6FF; padding: 2px 8px; border-radius: 4px;
+    align-self: flex-start;
+  }
+  strong { font-size: 15px; color: #1A2B3C; }
+}
+
+.stock-row {
+  display: flex; gap: 12px; margin-bottom: 14px;
+}
+
+.stock-card {
+  flex: 1; background: #F4F6F9; border-radius: 10px;
+  padding: 14px; text-align: center;
+
+  &.disponible { background: #EFF6FF; }
+
+  .stock-num {
+    display: block; font-size: 28px; font-weight: 700; color: #1E3A5F;
+  }
+  .stock-lbl {
+    display: block; font-size: 11px; color: #7A8C9E; margin-top: 2px;
+  }
+}
+
+.info-row {
+  display: flex; justify-content: space-between; padding: 8px 0;
+  .r-label { font-size: 12px; color: #7A8C9E; }
+  .r-valor  { font-size: 13px; color: #1A2B3C; font-weight: 500; }
+}
+
+.historial-body { padding: 0 !important; }
+
+.empty-state {
+  text-align: center; padding: 20px;
+  font-size: 13px; color: #7A8C9E;
+}
+
+.movimiento-item {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 10px 14px;
+  border-bottom: 1px solid #F4F6F9;
+  &:last-child { border-bottom: none; }
+
+  .mov-left { display: flex; flex-direction: column; gap: 2px; }
+  .mov-right { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+
+  .mov-tipo {
+    font-size: 11px; font-weight: 700; padding: 2px 8px;
+    border-radius: 4px;
+    &.entrada   { background: #DCFCE7; color: #16A34A; }
+    &.salida    { background: #FEE2E2; color: #DC2626; }
+    &.incidencia{ background: #FEF3C7; color: #D97706; }
+  }
+
+  .mov-fecha   { font-size: 11px; color: #7A8C9E; }
+  .mov-usuario { font-size: 11px; color: #7A8C9E; }
+
+  .mov-cantidad {
+    font-size: 18px; font-weight: 700;
+    &.entrada { color: #16A34A; }
+    &.salida  { color: #DC2626; }
+  }
+}

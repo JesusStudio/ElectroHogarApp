@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Centro de Operaciones
+      <p class="toolbar-sub">ELECTROCONTROL MOBILE</p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- ACCESOS DIRECTOS -->
+  <div class="section-card">
+    <div class="section-header">ACCESOS DIRECTOS</div>
+    <div class="section-body">
+      <div class="submodulos-grid">
+        <div class="submodulo-card" *ngFor="let s of submodulos"
+          [routerLink]="s.ruta">
+          <div class="sub-icon" [style.background]="s.bg">
+            <ion-icon [name]="s.icono" [style.color]="s.color"></ion-icon>
+          </div>
+          <span class="sub-titulo" [style.color]="s.color">{{ s.titulo }}</span>
+          <span class="sub-subtitulo">{{ s.subtitulo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTADO DEL SISTEMA -->
+  <div class="section-card">
+    <div class="section-header">ESTADO DEL SISTEMA</div>
+    <div class="section-body estado-body">
+      <div class="estado-item" *ngFor="let e of estadoSistema">
+        <span class="estado-label">{{ e.label }}</span>
+        <span class="estado-badge" [ngClass]="'badge-' + e.color">
+          {{ e.valor }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

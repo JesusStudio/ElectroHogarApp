@@ -1,0 +1,61 @@
+<ion-content class="login-content">
+
+  <!-- Logo y título -->
+  <div class="login-header">
+    <div class="logo-circle">
+      <ion-icon name="flash-outline"></ion-icon>
+    </div>
+    <h1>ElectroControl</h1>
+    <p>MOBILE V1.0</p>
+  </div>
+
+  <!-- Formulario -->
+  <div class="login-form">
+
+    <div class="input-group">
+      <label>USUARIO</label>
+      <ion-input
+        type="email"
+        placeholder="correo@empresa.com"
+        [(ngModel)]="email"
+        fill="outline"
+        [clearInput]="true">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+      </ion-input>
+    </div>
+
+    <div class="input-group">
+      <label>CONTRASEÑA</label>
+      <ion-input
+        type="password"
+        placeholder="••••••••"
+        [(ngModel)]="password"
+        fill="outline">
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </div>
+
+    <!-- Error message -->
+    <div class="error-msg" *ngIf="errorMsg">
+      <ion-text color="danger">{{ errorMsg }}</ion-text>
+    </div>
+
+    <!-- Botón login -->
+    <ion-button
+      expand="block"
+      (click)="onLogin()"
+      [disabled]="isLoading"
+      class="login-btn">
+      <ion-spinner *ngIf="isLoading" name="crescent" slot="start"></ion-spinner>
+      {{ isLoading ? 'Iniciando...' : 'INICIAR SESIÓN' }}
+    </ion-button>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="login-footer">
+    <p>© 2024 ElectroControl · Sede Principal</p>
+  </div>
+
+</ion-content>

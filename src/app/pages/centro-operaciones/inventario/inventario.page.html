@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/centro-operaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inventario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- CONSULTA -->
+  <div class="section-card">
+    <div class="section-header">CONSULTA DE INVENTARIO</div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>CÓDIGO PRODUCTO</label>
+        <ion-input fill="outline" placeholder="Ingresar código..."
+          [(ngModel)]="codigo" (keyup.enter)="onBuscar()">
+        </ion-input>
+      </div>
+      <div class="btn-row">
+        <ion-button (click)="onBuscar()" [disabled]="buscando">
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+          Buscar
+        </ion-button>
+        <ion-button fill="outline" (click)="onLimpiar()">
+          <ion-icon slot="start" name="refresh-outline"></ion-icon>
+          Limpiar
+        </ion-button>
+        <ion-button fill="outline" (click)="onHistorial()" [disabled]="!producto">
+          <ion-icon slot="start" name="time-outline"></ion-icon>
+          Historial
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTADO DE STOCK -->
+  <div class="section-card" *ngIf="producto">
+    <div class="section-header">ESTADO DE STOCK</div>
+    <div class="section-body">
+
+      <div class="producto-nombre">
+        <span class="codigo-tag">{{ producto.codigo }}</span>
+        <strong>{{ producto.nombre }}</strong>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-card">
+          <span class="stock-num">{{ producto.stockActual }}</span>
+          <span class="stock-lbl">Stock Actual</span>
+        </div>
+        <div class="stock-card disponible">
+          <span class="stock-num">{{ producto.stockDisponible }}</span>
+          <span class="stock-lbl">Stock Disponible</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <span class="r-label">Ubicación</span>
+        <span class="r-valor">{{ producto.ubicacion }}</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HISTORIAL DE MOVIMIENTOS -->
+  <div class="section-card" *ngIf="verHistorial">
+    <div class="section-header">HISTORIAL DE MOVIMIENTOS</div>
+    <div class="section-body historial-body">
+
+      <div class="empty-state" *ngIf="movimientos.length === 0">
+        Sin movimientos registrados.
+      </div>
+
+      <div class="movimiento-item" *ngFor="let m of movimientos">
+        <div class="mov-left">
+          <span class="mov-tipo" [ngClass]="m.tipoMovimiento.toLowerCase()">
+            {{ m.tipoMovimiento }}
+          </span>
+          <span class="mov-fecha">{{ formatFecha(m.fecha) }}</span>
+        </div>
+        <div class="mov-right">
+          <span class="mov-cantidad"
+            [class.entrada]="m.tipoMovimiento === 'Entrada'"
+            [class.salida]="m.tipoMovimiento !== 'Entrada'">
+            {{ m.tipoMovimiento === 'Entrada' ? '+' : '-' }}{{ m.cantidad }}
+          </span>
+          <span class="mov-usuario">{{ m.usuario }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

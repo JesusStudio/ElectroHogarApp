@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/centro-operaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestión Comercial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- CONSULTA -->
+  <div class="section-card">
+    <div class="section-header">CONSULTA DE PRODUCTO</div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>CÓDIGO PRODUCTO</label>
+        <ion-input fill="outline" placeholder="Ingresar código..."
+          [(ngModel)]="codigo" (keyup.enter)="onBuscar()">
+        </ion-input>
+      </div>
+      <div class="btn-row">
+        <ion-button expand="block" (click)="onBuscar()" [disabled]="buscando">
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+          Buscar
+        </ion-button>
+        <ion-button expand="block" fill="outline" (click)="onLimpiar()">
+          <ion-icon slot="start" name="refresh-outline"></ion-icon>
+          Limpiar
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="section-card" *ngIf="producto">
+    <div class="section-header">RESULTADO DE CONSULTA</div>
+    <div class="section-body">
+
+      <div class="resultado-item">
+        <span class="r-label">Código</span>
+        <span class="r-valor codigo">{{ producto.codigo }}</span>
+      </div>
+      <div class="resultado-item">
+        <span class="r-label">Descripción</span>
+        <span class="r-valor">{{ producto.nombre }}</span>
+      </div>
+      <div class="resultado-item">
+        <span class="r-label">Precio</span>
+        <span class="r-valor precio">S/ {{ producto.precio | number:'1.2-2' }}</span>
+      </div>
+      <div class="resultado-item">
+        <span class="r-label">Estado</span>
+        <span class="badge-estado" [class.activo]="producto.estado === 'Activo'">
+          {{ producto.estado }}
+        </span>
+      </div>
+      <div class="resultado-item">
+        <span class="r-label">Stock Disponible</span>
+        <span class="r-valor stock">{{ producto.stockDisponible }} unidades</span>
+      </div>
+      <div class="resultado-item">
+        <span class="r-label">Ubicación</span>
+        <span class="r-valor">{{ producto.ubicacion }}</span>
+      </div>
+
+      <!-- Aviso solo consulta -->
+      <div class="aviso-consulta">
+        <ion-icon name="warning-outline"></ion-icon>
+        Módulo de solo consulta — edición no disponible
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

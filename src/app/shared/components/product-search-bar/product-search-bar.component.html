@@ -1,0 +1,36 @@
+<div class="section-card">
+
+  <div class="section-header">DATOS DEL PRODUCTO</div>
+
+  <div class="section-body">
+
+    <!-- Código + Buscar -->
+    <div class="search-row">
+      <div class="input-wrap">
+        <label>CÓDIGO PRODUCTO</label>
+        <ion-input
+          [(ngModel)]="codigo"
+          placeholder="Escanear o ingresar código..."
+          fill="outline"
+          (keyup.enter)="onBuscar()">
+        </ion-input>
+      </div>
+      <ion-button (click)="onBuscar()" [disabled]="isLoading" class="buscar-btn">
+        <ion-spinner *ngIf="isLoading" name="crescent" slot="start"></ion-spinner>
+        <ion-icon *ngIf="!isLoading" name="search-outline" slot="start"></ion-icon>
+        Buscar
+      </ion-button>
+    </div>
+
+    <!-- Descripción (solo lectura) -->
+    <div class="input-wrap" *ngIf="descripcion">
+      <label>DESCRIPCIÓN</label>
+      <ion-input
+        [value]="descripcion"
+        fill="outline"
+        [readonly]="true">
+      </ion-input>
+    </div>
+
+  </div>
+</div>

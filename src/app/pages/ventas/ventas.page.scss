@@ -1,0 +1,70 @@
+.toolbar-sub {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.field-group {
+  margin-bottom: 12px;
+
+  label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #7A8C9E;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  ion-input {
+    --border-radius: 8px;
+    --border-color:  #E8ECF1;
+    font-size: 14px;
+  }
+}
+
+.field-row {
+  display: flex;
+  gap: 10px;
+
+  .field-group { flex: 1; }
+}
+
+.stock-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F4F6F9;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #4A5568;
+
+  strong { color: #16A34A; }
+}
+
+// ── Total de venta ────────────────────────────────────
+.total-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1E3A5F;
+  margin: 0 12px 12px;
+  border-radius: 10px;
+  padding: 14px 16px;
+
+  .total-label {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .total-valor {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+  }
+}

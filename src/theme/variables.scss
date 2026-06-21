@@ -1,2 +1,81 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+// ═══════════════════════════════════════════
+// ElectroControl — Paleta Corporativa
+// ═══════════════════════════════════════════
+
+:root {
+  // Colores primarios
+  --ion-color-primary:         #1E3A5F;
+  --ion-color-primary-rgb:     30, 58, 95;
+  --ion-color-primary-shade:   #172e4b;
+  --ion-color-primary-tint:    #2a4d7a;
+
+  // Fondo general
+  --ion-background-color:      #F4F6F9;
+  --ion-background-color-rgb:  244, 246, 249;
+
+  // Tarjetas y superficies
+  --ion-card-background:       #FFFFFF;
+  --ion-item-background:       #FFFFFF;
+
+  // Texto
+  --ion-text-color:            #1A2B3C;
+  --ion-text-color-rgb:        26, 43, 60;
+
+  // Grises para bordes y subtítulos
+  --color-gray-light:          #E8ECF1;
+  --color-gray-medium:         #7A8C9E;
+  --color-gray-dark:           #4A5568;
+
+  // Acento azul para botones primarios
+  --color-accent-blue:         #2563EB;
+
+  // Estado: activo/éxito
+  --color-success:             #16A34A;
+
+  // Estado: alerta/incidencias
+  --color-warning:             #D97706;
+
+  // Estado: error/eliminar
+  --color-danger:              #DC2626;
+
+  // Header / toolbar
+  --ion-toolbar-background:    #1E3A5F;
+  --ion-toolbar-color:         #FFFFFF;
+}
+
+// ─── Estilos globales de botones ──────────────────────
+ion-button {
+  --border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Botón primario (PROCESAR, AGREGAR, IMPRIMIR)
+ion-button[color="primary"] {
+  --background: var(--color-accent-blue);
+}
+
+// ─── Sección card con encabezado azul (como en el prototipo) ──
+.section-card {
+  background: white;
+  border-radius: 10px;
+  margin: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  .section-header {
+    background: var(--ion-color-primary);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px 10px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .section-body {
+    padding: 12px 14px;
+  }
+}

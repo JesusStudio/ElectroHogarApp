@@ -1,0 +1,97 @@
+.login-content {
+  --background: linear-gradient(160deg, #1E3A5F 0%, #0f2340 60%, #1a2f50 100%);
+}
+
+// ── Header con logo ──────────────────────────────────
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 40px;
+
+  .logo-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+
+    ion-icon {
+      font-size: 40px;
+      color: #FFD700;
+    }
+  }
+
+  h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    margin: 4px 0 0;
+    letter-spacing: 3px;
+  }
+}
+
+// ── Formulario ───────────────────────────────────────
+.login-form {
+  background: white;
+  margin: 0 20px;
+  border-radius: 16px;
+  padding: 28px 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+  .input-group {
+    margin-bottom: 16px;
+
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #7A8C9E;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    ion-input {
+      --border-radius: 8px;
+      --border-color: #E8ECF1;
+      --padding-start: 12px;
+    }
+  }
+
+  .error-msg {
+    margin-bottom: 12px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .login-btn {
+    margin-top: 8px;
+    --background: #1E3A5F;
+    --border-radius: 10px;
+    height: 48px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+}
+
+// ── Footer ───────────────────────────────────────────
+.login-footer {
+  text-align: center;
+  margin-top: 32px;
+
+  p {
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+  }
+}

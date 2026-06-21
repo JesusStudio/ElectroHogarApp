@@ -1,0 +1,30 @@
+.action-toolbar {
+  --background: #F4F6F9;
+  border-top: 1px solid #E8ECF1;
+  display: flex;
+  padding: 4px 8px;
+
+  ion-button {
+    flex: 1;
+    height: 52px;
+    font-size: 11px;
+    font-weight: 600;
+    --border-radius: 8px;
+    margin: 0 3px;
+  }
+
+  .btn-secondary {
+    --color: #1E3A5F;
+    --border-color: #1E3A5F;
+  }
+
+  .btn-danger {
+    --color: #DC2626;
+    --border-color: #DC2626;
+  }
+
+  .btn-primary {
+    --background: #1E3A5F;
+    --color: white;
+  }
+}

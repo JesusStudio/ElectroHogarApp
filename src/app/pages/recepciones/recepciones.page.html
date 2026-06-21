@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Recepciones
+      <p class="toolbar-sub">ELECTROCONTROL MOBILE</p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- DATOS GENERALES -->
+  <div class="section-card">
+    <div class="section-header">DATOS GENERALES</div>
+    <div class="section-body">
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>FECHA</label>
+          <ion-input fill="outline" [value]="fecha" [readonly]="true">
+          </ion-input>
+        </div>
+        <div class="field-group">
+          <label>N° DOCUMENTO</label>
+          <ion-input fill="outline" placeholder="REC-2024-0001"
+            [(ngModel)]="numeroDocumento">
+          </ion-input>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>PROVEEDOR</label>
+        <ion-input fill="outline" placeholder="Nombre del proveedor"
+          [(ngModel)]="proveedor">
+        </ion-input>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BÚSQUEDA DE PRODUCTO -->
+  <app-product-search-bar
+    [descripcion]="productoEncontrado?.nombre ?? ''"
+    [isLoading]="buscando"
+    (buscar)="onBuscarProducto($event)">
+  </app-product-search-bar>
+
+  <!-- CANTIDAD RECIBIDA -->
+  <div class="section-card" *ngIf="productoEncontrado">
+    <div class="section-header">CANTIDAD</div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>CANTIDAD RECIBIDA</label>
+        <ion-input fill="outline" type="number"
+          [(ngModel)]="cantidadRecibida" [min]="1">
+        </ion-input>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA DE ITEMS -->
+  <app-data-table
+    titulo="DETALLE DE RECEPCIÓN"
+    [columnas]="columnas"
+    [datos]="items"
+    [filaSeleccionada]="itemSeleccionado"
+    (seleccionar)="itemSeleccionado = $event"
+    (eliminar)="onEliminarItem($event)">
+  </app-data-table>
+
+</ion-content>
+
+<!-- BARRA DE ACCIONES -->
+<app-action-bar
+  (listar)="onListar()"
+  (agregar)="onAgregar()"
+  (eliminar)="onEliminar()"
+  (procesar)="onProcesar()"
+  [deshabilitarProcesar]="items.length === 0">
+</app-action-bar>

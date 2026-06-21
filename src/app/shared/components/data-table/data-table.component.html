@@ -1,0 +1,40 @@
+<div class="section-card">
+
+  <div class="section-header" *ngIf="titulo">
+    {{ titulo }}
+    <span class="item-count">{{ datos.length }} items</span>
+  </div>
+
+  <div class="section-body table-wrap">
+
+    <!-- Sin datos -->
+    <div class="empty-state" *ngIf="datos.length === 0">
+      Sin registros agregados
+    </div>
+
+    <!-- Tabla -->
+    <table *ngIf="datos.length > 0">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columnas" [style.width]="col.ancho">
+            {{ col.cabecera }}
+          </th>
+          <th class="col-accion">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of datos"
+            (click)="onSeleccionar(fila)"
+            [class.selected]="filaSeleccionada === fila">
+          <td *ngFor="let col of columnas">{{ fila[col.campo] }}</td>
+          <td class="col-accion">
+            <button class="btn-delete" (click)="$event.stopPropagation(); eliminar.emit(fila)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<ion-content class="ion-padding">
+
+  <div class="section-card">
+    <div class="section-header">DATOS DEL PRODUCTO</div>
+    <div class="section-body">
+
+      <div class="field-group">
+        <label>CÓDIGO</label>
+        <ion-input fill="outline" placeholder="Ej: TV-SAM-55"
+          [(ngModel)]="producto.codigo"
+          [style.text-transform]="'uppercase'">
+        </ion-input>
+      </div>
+
+      <div class="field-group">
+        <label>NOMBRE</label>
+        <ion-input fill="outline" placeholder="Nombre comercial"
+          [(ngModel)]="producto.nombre">
+        </ion-input>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>MARCA</label>
+          <ion-input fill="outline" placeholder="Ej: Samsung"
+            [(ngModel)]="producto.marca">
+          </ion-input>
+        </div>
+        <div class="field-group">
+          <label>MODELO</label>
+          <ion-input fill="outline" placeholder="Ej: UN55AU7000"
+            [(ngModel)]="producto.modelo">
+          </ion-input>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>CATEGORÍA</label>
+          <ion-select fill="outline" placeholder="Seleccionar"
+            [(ngModel)]="producto.categoria">
+            <ion-select-option *ngFor="let cat of categorias" [value]="cat">
+              {{ cat }}
+            </ion-select-option>
+          </ion-select>
+        </div>
+        <div class="field-group">
+          <label>PRECIO (S/)</label>
+          <ion-input fill="outline" type="number" placeholder="0.00"
+            [(ngModel)]="producto.precio">
+          </ion-input>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>UBICACIÓN</label>
+        <ion-input fill="outline" placeholder="Ej: Almacén A - Estante 3"
+          [(ngModel)]="producto.ubicacion">
+        </ion-input>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Botones -->
+  <div class="btn-group">
+    <ion-button expand="block" (click)="onAgregar()" [disabled]="isLoading">
+      <ion-icon slot="start" name="add-outline"></ion-icon>
+      {{ isLoading ? 'Guardando...' : 'AGREGAR' }}
+    </ion-button>
+    <ion-button expand="block" fill="outline" (click)="onLimpiar()">
+      <ion-icon slot="start" name="refresh-outline"></ion-icon>
+      LIMPIAR
+    </ion-button>
+  </div>
+
+</ion-content>

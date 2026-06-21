@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ElectroControl Mobile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Bienvenida -->
+  <div class="welcome-section">
+    <p class="welcome-label">Bienvenido</p>
+    <h1 class="welcome-title">ElectroControl</h1>
+    <p class="welcome-sub">Sistema de Gestión de Inventario y Ventas</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <app-stat-card
+      [valor]="totalProductos"
+      label="Productos">
+    </app-stat-card>
+
+    <app-stat-card
+      [valor]="ventasHoy"
+      label="Ventas hoy"
+      color="#16A34A">
+    </app-stat-card>
+
+    <app-stat-card
+      [valor]="stockBajo"
+      label="Stock bajo"
+      color="#DC2626">
+    </app-stat-card>
+  </div>
+
+  <!-- Módulos -->
+  <div class="modules-grid">
+    <app-module-card
+      *ngFor="let m of modulos"
+      [titulo]="m.titulo"
+      [subtitulo]="m.subtitulo"
+      [icono]="m.icono"
+      [ruta]="m.ruta">
+    </app-module-card>
+  </div>
+
+  <!-- Sync status -->
+  <div class="sync-status">
+    <ion-icon name="ellipse-sharp" color="success"></ion-icon>
+    <span>Última sincronización: hoy {{ fechaSync }} — Sistema activo</span>
+  </div>
+
+</ion-content>

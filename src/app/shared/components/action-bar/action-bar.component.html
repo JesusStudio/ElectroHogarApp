@@ -1,0 +1,31 @@
+<ion-footer>
+  <ion-toolbar class="action-toolbar">
+
+    <ion-button *ngIf="mostrarListar"
+      fill="outline" (click)="listar.emit()" class="btn-secondary">
+      <ion-icon slot="top" name="list-outline"></ion-icon>
+      Listar
+    </ion-button>
+
+    <ion-button *ngIf="mostrarAgregar"
+      fill="outline" (click)="agregar.emit()" class="btn-secondary">
+      <ion-icon slot="top" name="add-outline"></ion-icon>
+      Agregar
+    </ion-button>
+
+    <ion-button *ngIf="mostrarEliminar"
+      fill="outline" (click)="eliminar.emit()" class="btn-danger">
+      <ion-icon slot="top" name="trash-outline"></ion-icon>
+      Eliminar
+    </ion-button>
+
+    <ion-button *ngIf="mostrarProcesar"
+      (click)="procesar.emit()"
+      [disabled]="deshabilitarProcesar"
+      class="btn-primary">
+      <ion-icon slot="top" name="checkmark-circle-outline"></ion-icon>
+      Procesar
+    </ion-button>
+
+  </ion-toolbar>
+</ion-footer>

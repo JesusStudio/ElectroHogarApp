@@ -1,0 +1,38 @@
+.search-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+
+  .input-wrap {
+    flex: 1;
+  }
+
+  .buscar-btn {
+    --background: #2563EB;
+    --border-radius: 8px;
+    height: 44px;
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.input-wrap {
+  margin-bottom: 12px;
+
+  label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #7A8C9E;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  ion-input {
+    --border-radius: 8px;
+    --border-color: #E8ECF1;
+    font-size: 14px;
+  }
+}
