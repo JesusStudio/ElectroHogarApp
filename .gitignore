@@ -74,6 +74,3 @@ Thumbs.db
 *-debug.log
 .runtimeconfig.json
 
-# Credenciales de Firebase (no deben subirse a repositorios públicos)
-src/environments/environment.ts
-src/environments/environment.prod.ts
