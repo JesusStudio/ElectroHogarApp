@@ -7,7 +7,7 @@ import {
   IonButton, IonIcon, ToastController
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { searchOutline, refreshOutline } from 'ionicons/icons';
+import { searchOutline, refreshOutline, warningOutline } from 'ionicons/icons';
 import { GestionComercialService } from './services/gestion-comercial.service';
 import { Producto } from '../../../core/models/producto.model';
 
@@ -31,7 +31,7 @@ export class GestionComercialPage {
   producto: Producto | null  = null;
   buscando: boolean          = false;
 
-  constructor() { addIcons({ searchOutline, refreshOutline }); }
+  constructor() { addIcons({ searchOutline, refreshOutline, warningOutline }); }
 
   async onBuscar() {
     if (!this.codigo.trim()) return;
