@@ -27,7 +27,7 @@
   }
 
   h1 {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 28px;
     font-weight: 700;
     margin: 0;
@@ -44,7 +44,7 @@
 
 // ── Formulario ───────────────────────────────────────
 .login-form {
-  background: white;
+  background: rgb(255, 255, 255);
   margin: 0 20px;
   border-radius: 16px;
   padding: 28px 20px;
@@ -57,14 +57,14 @@
       display: block;
       font-size: 11px;
       font-weight: 700;
-      color: #7A8C9E;
+      color: #000000;
       letter-spacing: 1px;
       margin-bottom: 6px;
     }
 
     ion-input {
       --border-radius: 8px;
-      --border-color: #E8ECF1;
+      --border-color: #8b9db4;
       --padding-start: 12px;
     }
   }
@@ -83,6 +83,10 @@
     font-weight: 700;
     letter-spacing: 1px;
   }
+}
+
+.password-input {
+  --color: #000000;
 }
 
 // ── Footer ───────────────────────────────────────────

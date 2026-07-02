@@ -1,4 +1,8 @@
 // ── Bienvenida ────────────────────────────────────────
+ion-content {
+  --background: hsl(0, 0%, 93%);
+}
+
 .welcome-section {
   background: linear-gradient(135deg, #1E3A5F 0%, #2a4d7a 100%);
   padding: 24px 20px 28px;

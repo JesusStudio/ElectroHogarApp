@@ -21,7 +21,6 @@
 
     <ion-button *ngIf="mostrarProcesar"
       (click)="procesar.emit()"
-      [disabled]="deshabilitarProcesar"
       class="btn-primary">
       <ion-icon slot="top" name="checkmark-circle-outline"></ion-icon>
       Procesar

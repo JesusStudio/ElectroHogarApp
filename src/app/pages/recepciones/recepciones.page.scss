@@ -1,3 +1,11 @@
+ion-content {
+  --background: hsl(0, 0%, 93%);
+}
+
+ion-toolbar {
+  --background: #19294d;
+}
+
 .toolbar-sub {
   font-size: 9px;
   letter-spacing: 1.5px;
@@ -30,4 +38,24 @@
   gap: 10px;
 
   .field-group { flex: 1; }
+}
+
+ion-input {
+  --color: #000;
+}
+
+ion-input::part(native) {
+  color: #000;
+}
+
+ion-textarea {
+  --color: #000;
+}
+
+ion-textarea::part(native) {
+  color: #000;
+}
+
+ion-select {
+  --color: #000;
 }

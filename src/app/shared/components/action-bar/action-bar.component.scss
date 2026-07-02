@@ -1,6 +1,6 @@
 .action-toolbar {
-  --background: #F4F6F9;
-  border-top: 1px solid #E8ECF1;
+  --background: #ffffff;
+  border-top: 1px solid #ffffff;
   display: flex;
   padding: 4px 8px;
 
@@ -13,18 +13,21 @@
     margin: 0 3px;
   }
 
-  .btn-secondary {
-    --color: #1E3A5F;
-    --border-color: #1E3A5F;
-  }
+.btn-primary {
+  --background: #13b2f1;
+  --color: white;
+  --border-radius: 10px;
+}
 
-  .btn-danger {
-    --color: #DC2626;
-    --border-color: #DC2626;
-  }
+.btn-secondary {
+  --background: #4CAF50;
+  --color: white;
+  --border-radius: 10px;
+}
 
-  .btn-primary {
-    --background: #1E3A5F;
-    --color: white;
-  }
+.btn-danger {
+  --background: #E53935;
+  --color: white;
+  --border-radius: 10px;
+}
 }

@@ -11,6 +11,7 @@ import { EtiquetadoService } from '../services/etiquetado.service';
 import { Producto } from '../../../../core/models/producto.model';
 import { ProductSearchBarComponent } from '../../../../shared/components/product-search-bar/product-search-bar.component';
 import { ItemEtiqueta } from '../../../../core/models/etiqueta.model';
+import { Router } from '@angular/router';
 
 // Servicio compartido entre las dos sub-páginas
 import { EtiquetadoStateService } from '../services/etiquetado-state.service';
@@ -30,6 +31,7 @@ export class EtiquetadoSeleccionarPage {
   private service      = inject(EtiquetadoService);
   private stateService = inject(EtiquetadoStateService);
   private toastCtrl    = inject(ToastController);
+  private router = inject(Router);
 
   productoEncontrado: Producto | null = null;
   promocion:          boolean = false;
@@ -63,6 +65,7 @@ export class EtiquetadoSeleccionarPage {
     this.productoEncontrado = null;
     this.cantidadEtiquetas  = 1;
     this.promocion          = false;
+    await this.router.navigate(['/centro-operaciones/etiquetado/listado'])
   }
 
   get precioPromocion(): number {
